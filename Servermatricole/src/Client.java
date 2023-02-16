@@ -7,7 +7,8 @@ import java.net.Socket;
 public class Client {
 
     public static void main(String[] args) throws IOException {
-        String[] dati=new String[9100]; //numero di matricole e nome e cognome presenti nel file
+
+        String[] dati=new String[9100]; //numero di matricole
         String[] tel=new String[9100];
         try (FileReader f=new FileReader("src/DatiClient.csv");
              BufferedReader b = new BufferedReader(f)) {
@@ -35,6 +36,7 @@ public class Client {
                 e.printStackTrace();
             }
         }
+
         try (FileWriter fw = new FileWriter("src/DatiUtenti.csv")) {
             for (int i = 0; i < dati.length; i++) {
                 fw.write(dati[i]+ ";"+tel[i]+"\n");
